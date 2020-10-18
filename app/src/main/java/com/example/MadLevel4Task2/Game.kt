@@ -4,10 +4,12 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+
 @Entity(tableName = "gamesTable")
 data class Game(
 
-    //var date: Date,
+    @ColumnInfo(name = "date")
+    var date: String,
     @ColumnInfo(name = "movePC")
     var movePC: Int,
     @ColumnInfo(name = "movePlayer")

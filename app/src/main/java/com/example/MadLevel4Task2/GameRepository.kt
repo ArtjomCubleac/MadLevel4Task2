@@ -2,7 +2,7 @@ package com.example.MadLevel4Task2
 
 import android.content.Context
 
-public class GameRepository(context: Context) {
+class GameRepository(context: Context) {
 
     private var gameDao: GameDao
 

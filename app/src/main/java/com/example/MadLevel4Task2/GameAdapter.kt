@@ -12,11 +12,22 @@ class GameAdapter(private val games: List<Game>):
 {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    //    val binding = ItemReminderBinding.bind(itemView)
-
         fun databind(game: Game) {
-   //         binding.tvReminder.text = reminder.reminderText
-    //        itemView.tvReminder.text = game.reminderText
+
+            itemView.date.text = game.date
+            itemView.result2.text = game.result
+
+            when (game.movePlayer){
+                1 -> itemView.youThrow5.setImageResource(R.drawable.rock)
+                2 -> itemView.youThrow5.setImageResource(R.drawable.paper)
+                3 -> itemView.youThrow5.setImageResource(R.drawable.scissors)
+            }
+
+            when (game.movePC){
+                1 -> itemView.computerThrowImg5.setImageResource(R.drawable.rock)
+                2 -> itemView.computerThrowImg5.setImageResource(R.drawable.paper)
+                3 -> itemView.computerThrowImg5.setImageResource(R.drawable.scissors)
+            }
         }
     }
     /**

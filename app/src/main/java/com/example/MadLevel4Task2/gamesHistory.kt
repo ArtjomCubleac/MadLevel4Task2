@@ -1,16 +1,12 @@
 package com.example.MadLevel4Task2
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResultListener
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.madLevel4Task2.R
-import kotlinx.android.synthetic.main.fragment_games.*
 import kotlinx.android.synthetic.main.game_history.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -20,7 +16,7 @@ import kotlinx.coroutines.withContext
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class AddReminderFragment : Fragment() {
+class gameHistoryFragment : Fragment() {
 
     private val games = arrayListOf<Game>()
     private val gameAdapter = GameAdapter(games)
@@ -35,13 +31,13 @@ class AddReminderFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.game_history, container, false)
-        initViews()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setHasOptionsMenu(true);
+        setHasOptionsMenu(true)
         gameRepository = GameRepository(requireContext())
+        initViews()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -60,10 +56,7 @@ class AddReminderFragment : Fragment() {
         gamesHistoryRV.adapter = gameAdapter
         gamesHistoryRV.addItemDecoration(DividerItemDecoration(context,DividerItemDecoration.VERTICAL))
 
-
         getGamesFromDatabase()
-
-        //createItemTouchHelper().attachToRecyclerView(rvReminders)
     }
 
     private fun getGamesFromDatabase() {
@@ -71,9 +64,9 @@ class AddReminderFragment : Fragment() {
             val games = withContext(Dispatchers.IO) {
                 gameRepository.getAllGames()
             }
-            this@AddReminderFragment.games.clear()
-            this@AddReminderFragment.games.addAll(games)
-            this@AddReminderFragment.gameAdapter.notifyDataSetChanged()
+            this@gameHistoryFragment.games.clear()
+            this@gameHistoryFragment.games.addAll(games)
+            this@gameHistoryFragment.gameAdapter.notifyDataSetChanged()
         }
     }
 

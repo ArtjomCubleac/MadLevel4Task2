@@ -1,16 +1,19 @@
 package com.example.MadLevel4Task2
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.madLevel4Task2.R
 import kotlinx.android.synthetic.main.fragment_games.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -59,7 +62,13 @@ class GamesFragment : Fragment() {
     }
 
 
+    @SuppressLint("SimpleDateFormat")
     private fun startGame(i: Int) {
+
+        val datePlayed = SimpleDateFormat("yyyy.MM.dd HH:mm:ss z")
+
+
+
         when (i) {
             1 -> youThrow.setImageResource(R.drawable.rock)
             2 -> youThrow.setImageResource(R.drawable.paper)
@@ -100,6 +109,7 @@ class GamesFragment : Fragment() {
 
         mainScope.launch {
             val game = Game(
+                date = datePlayed.format(Date()),
                 movePC = computerThrow,
                 movePlayer = i,
                 result = win_lose.text.toString()
