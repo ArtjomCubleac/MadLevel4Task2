@@ -26,6 +26,7 @@ class gameHistoryFragment : Fragment() {
 
 
     override fun onCreateView(
+
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
@@ -38,6 +39,8 @@ class gameHistoryFragment : Fragment() {
         setHasOptionsMenu(true)
         gameRepository = GameRepository(requireContext())
         initViews()
+
+        
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
