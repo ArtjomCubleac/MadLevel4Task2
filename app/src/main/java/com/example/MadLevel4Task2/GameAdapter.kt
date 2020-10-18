@@ -1,42 +1,43 @@
-package com.example.madlevel4example
+package com.example.MadLevel4Task2
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_reminder.view.*
+import com.example.madLevel4Task2.R
+import kotlinx.android.synthetic.main.item_game.view.*
 
-class ReminderAdapter(private val reminders: List<Reminder>):
-    RecyclerView.Adapter<ReminderAdapter.ViewHolder>()
+class GameAdapter(private val games: List<Game>):
+    RecyclerView.Adapter<GameAdapter.ViewHolder>()
 {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     //    val binding = ItemReminderBinding.bind(itemView)
 
-        fun databind(reminder: Reminder) {
+        fun databind(game: Game) {
    //         binding.tvReminder.text = reminder.reminderText
-            itemView.tvReminder.text = reminder.reminderText
+    //        itemView.tvReminder.text = game.reminderText
         }
     }
     /**
      * Creates and returns a ViewHolder object, inflating a standard layout called simple_list_item_1.
      */
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReminderAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameAdapter.ViewHolder {
         return ViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_reminder, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_game, parent, false)
         )
     }
     /**
      * Returns the size of the list
      */
     override fun getItemCount(): Int {
-        return reminders.size
+        return games.size
     }
 
     /**
      * Called by RecyclerView to display the data at the specified position.
      */
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.databind(reminders[position])
+        holder.databind(games[position])
     }
 }

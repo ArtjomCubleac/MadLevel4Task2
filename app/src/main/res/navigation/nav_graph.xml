@@ -7,16 +7,20 @@
 
     <fragment
         android:id="@+id/remindersFragment"
-        android:name="com.example.madlevel4example.RemindersFragment"
+        android:name="com.example.MadLevel4Task2.GamesFragment"
         android:label="fragment_reminders"
-        tools:layout="@layout/fragment_reminders" >
+        tools:layout="@layout/fragment_games" >
         <action
             android:id="@+id/action_remindersFragment_to_addReminderFragment"
             app:destination="@id/addReminderFragment" />
     </fragment>
     <fragment
         android:id="@+id/addReminderFragment"
-        android:name="com.example.madlevel4example.AddReminderFragment"
+        android:name="com.example.MadLevel4Task2.AddReminderFragment"
         android:label="fragment_add_reminder"
-        tools:layout="@layout/fragment_add_reminder" />
+        tools:layout="@layout/game_add_reminder" >
+        <action
+            android:id="@+id/action_addReminderFragment_to_remindersFragment"
+            app:destination="@id/remindersFragment" />
+    </fragment>
 </navigation>

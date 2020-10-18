@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MadLevel4Example</string>
+    <string name="app_name">MadLevel4Task2</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="reminders">Reminders</string>
@@ -7,4 +7,10 @@
     <string name="add_your_reminder">Add your reminder</string>
     <string name="reminder_name">Reminder name</string>
     <string name="not_valid_reminder">Invalid reminder</string>
+    <string name="welcome">Welcome</string>
+    <string name="instructions">Instructions: select rock, paper or scissors to play.</string>
+    <string name="you_win">You win!</string>
+    <string name="v_s">V.S.</string>
+    <string name="computer">Computer</string>
+    <string name="you">You</string>
 </resources>
