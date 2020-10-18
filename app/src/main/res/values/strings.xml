@@ -10,6 +10,8 @@
     <string name="welcome">Welcome</string>
     <string name="instructions">Instructions: select rock, paper or scissors to play.</string>
     <string name="you_win">You win!</string>
+    <string name="you_lose">Computer wins!</string>
+    <string name="draw">Draw!</string>
     <string name="v_s">V.S.</string>
     <string name="computer">Computer</string>
     <string name="you">You</string>

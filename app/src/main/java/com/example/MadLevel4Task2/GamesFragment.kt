@@ -1,21 +1,12 @@
 package com.example.MadLevel4Task2
+
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.setFragmentResultListener
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.madLevel4Task2.R
 import kotlinx.android.synthetic.main.fragment_games.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -27,8 +18,8 @@ class GamesFragment : Fragment() {
     private val reminders = arrayListOf<Game>()
     private val reminderAdapter = GameAdapter(reminders)
 
-    private var currentThrow: Int = 1
-    private var lastThrow: Int = 1
+    private var computerThrow: Int = 0
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,6 +31,16 @@ class GamesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        rock.setOnClickListener {
+            startGame(1)
+        }
+        paper.setOnClickListener {
+            startGame(2)
+        }
+        scissors.setOnClickListener {
+            startGame(3)
+        }
 
         initViews()
 
@@ -85,27 +86,52 @@ class GamesFragment : Fragment() {
     }
 
 
-    private fun startGame() {
-        lastThrow = currentThrow
-        currentThrow = (1..3).random()
-        updateUI()
+    private fun startGame(i: Int) {
+        when (i) {
+            1 -> youThrow.setImageResource(R.drawable.rock)
+            2 -> youThrow.setImageResource(R.drawable.paper)
+            3 -> youThrow.setImageResource(R.drawable.scissors)
+        }
+        computerThrow = (1..3).random()
+
+        when (computerThrow) {
+            1 -> computerThrowImg.setImageResource(R.drawable.rock)
+            2 -> computerThrowImg.setImageResource(R.drawable.paper)
+            3 -> computerThrowImg.setImageResource(R.drawable.scissors)
+        }
+
+        if (i == 1 && computerThrow == 3) {
+            win_lose.setText(R.string.you_win)
+        } else if (i == computerThrow) {
+            win_lose.setText(R.string.draw)
+        } else {
+            win_lose.setText(R.string.you_lose)
+        }
+
+        if (i == 2 && computerThrow == 1) {
+            win_lose.setText(R.string.you_win)
+        } else if (i == computerThrow) {
+            win_lose.setText(R.string.draw)
+        } else {
+            win_lose.setText(R.string.you_lose)
+        }
+
+        if (i == 3 && computerThrow == 2) {
+            win_lose.setText(R.string.you_win)
+        } else if (i == computerThrow) {
+            win_lose.setText(R.string.draw)
+        } else {
+            win_lose.setText(R.string.you_lose)
+        }
+
+
     }
 
     /**
-     * Update the last throw text and the dice image resource drawable with the current throw.
+     * Create a touch helper to recognize when a user swipes an item from a recycler view.
+     * An ItemTouchHelper enables touch behavior (like swipe and move) on each ViewHolder,
+     * and uses callbacks to signal when a user is performing these actions.
      */
-    private fun updateUI() {
-        when (currentThrow) {
-            1 -> imageView.setImageResource(R.drawable.rock)
-            2 -> imageView.setImageResource(R.drawable.paper)
-            3 -> imageView.setImageResource(R.drawable.scissors)
-
-
-            /**
-             * Create a touch helper to recognize when a user swipes an item from a recycler view.
-             * An ItemTouchHelper enables touch behavior (like swipe and move) on each ViewHolder,
-             * and uses callbacks to signal when a user is performing these actions.
-             */
 //    private fun createItemTouchHelper(): ItemTouchHelper {
 //
 //        // Callback which is used to create the ItemTouch helper. Only enables left swipe.
@@ -156,6 +182,5 @@ class GamesFragment : Fragment() {
 //        }
 //
 //    }
-        }
-    }
 }
+

@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.783"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rock3"
+        app:layout_constraintTop_toBottomOf="@+id/youThrow"
         app:layout_constraintVertical_bias="0.056" />
 
     <TextView
@@ -35,7 +35,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.235"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rock2"
+        app:layout_constraintTop_toBottomOf="@+id/computerThrowImg"
         app:layout_constraintVertical_bias="0.058" />
 
     <TextView
@@ -48,14 +48,14 @@
         android:textSize="36sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/paper"
-        app:layout_constraintEnd_toStartOf="@+id/rock3"
+        app:layout_constraintEnd_toStartOf="@+id/youThrow"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/rock2"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/computerThrowImg"
+        app:layout_constraintTop_toBottomOf="@+id/win_lose"
         app:layout_constraintVertical_bias="0.191" />
 
     <ImageView
-        android:id="@+id/rock3"
+        android:id="@+id/youThrow"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginEnd="80dp"
@@ -67,23 +67,23 @@
         app:layout_constraintVertical_bias="0.395" />
 
     <ImageView
-        android:id="@+id/rock2"
+        android:id="@+id/computerThrowImg"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginStart="80dp"
         android:background="#4E00E9"
         android:src="@drawable/rock"
         app:layout_constraintBottom_toTopOf="@+id/rock"
-        app:layout_constraintEnd_toStartOf="@+id/rock3"
+        app:layout_constraintEnd_toStartOf="@+id/youThrow"
         app:layout_constraintHorizontal_bias="0.039"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.395" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="93dp"
-        android:layout_height="24dp"
+        android:id="@+id/win_lose"
+        android:layout_width="150dp"
+        android:layout_height="23dp"
         android:layout_marginBottom="300dp"
         android:text="@string/you_win"
         android:textAlignment="center"
@@ -131,7 +131,7 @@
         android:layout_marginTop="77dp"
         android:layout_marginBottom="113dp"
         android:src="@drawable/rectangle"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/win_lose"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
