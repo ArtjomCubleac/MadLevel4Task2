@@ -40,7 +40,7 @@ class gameHistoryFragment : Fragment() {
         gameRepository = GameRepository(requireContext())
         initViews()
 
-        
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -53,11 +53,16 @@ class gameHistoryFragment : Fragment() {
 
 
     private fun initViews() {
-      //   Initialize the recycler view with a linear layout manager, adapter
+        //   Initialize the recycler view with a linear layout manager, adapter
         gamesHistoryRV.layoutManager =
             LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         gamesHistoryRV.adapter = gameAdapter
-        gamesHistoryRV.addItemDecoration(DividerItemDecoration(context,DividerItemDecoration.VERTICAL))
+        gamesHistoryRV.addItemDecoration(
+            DividerItemDecoration(
+                context,
+                DividerItemDecoration.VERTICAL
+            )
+        )
 
         getGamesFromDatabase()
     }
