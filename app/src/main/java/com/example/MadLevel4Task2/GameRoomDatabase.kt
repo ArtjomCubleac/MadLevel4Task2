@@ -12,7 +12,7 @@ abstract class GameRoomDatabase : RoomDatabase() {
     abstract fun reminderDao(): GameDao
 
     companion object {
-        private const val DATABASE_NAME = "REMINDER_DATABASE"
+        private const val DATABASE_NAME = "GAMES_DATABASE"
 
         @Volatile
         private var gameRoomDatabaseInstance: GameRoomDatabase? = null

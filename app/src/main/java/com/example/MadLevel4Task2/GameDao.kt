@@ -6,16 +6,19 @@ import androidx.room.*
 @Dao
 interface GameDao {
 
-    @Query("SELECT * FROM reminderTable")
-    suspend fun getAllReminders(): List<Game>
+    @Query("SELECT * FROM gamesTable")
+    suspend fun getAllGames(): List<Game>
 
     @Insert
-    suspend fun insertReminder(game: Game)
+    suspend fun insertGame(game: Game)
 
     @Delete
-    suspend fun deleteReminder(game: Game)
+    suspend fun deleteGame(game: Game)
 
     @Update
-    suspend fun updateReminder(game: Game)
+    suspend fun updateGame(game: Game)
+
+    @Query("DELETE FROM gamesTable")
+    suspend fun deleteAllGames()
 
 }

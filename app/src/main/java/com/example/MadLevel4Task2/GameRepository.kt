@@ -11,20 +11,24 @@ public class GameRepository(context: Context) {
         gameDao = reminderRoomDatabase!!.reminderDao()
     }
 
-    suspend fun getAllReminders(): List<Game> {
-        return gameDao.getAllReminders()
+    suspend fun getAllGames(): List<Game> {
+        return gameDao.getAllGames()
     }
 
-    suspend fun insertReminder(game: Game) {
-        gameDao.insertReminder(game)
+    suspend fun insertGame(game: Game) {
+        gameDao.insertGame(game)
     }
 
-    suspend fun deleteReminder(game: Game) {
-        gameDao.deleteReminder(game)
+    suspend fun deleteGame(game: Game) {
+        gameDao.deleteGame(game)
     }
 
 
-    suspend fun updateReminder(game: Game) {
-        gameDao.updateReminder(game)
+    suspend fun updateGame(game: Game) {
+        gameDao.updateGame(game)
+    }
+
+    suspend fun deleteAllGames() {
+        gameDao.deleteAllGames()
     }
 }
