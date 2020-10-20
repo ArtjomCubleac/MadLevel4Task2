@@ -15,4 +15,5 @@
     <string name="v_s">V.S.</string>
     <string name="computer">Computer</string>
     <string name="you">You</string>
+    <string name="onLoad">Select Hand to Play!</string>
 </resources>

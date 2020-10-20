@@ -35,6 +35,8 @@ class GamesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        onLoad()
+
         rock.setOnClickListener {
             startGame(1)
         }
@@ -47,6 +49,10 @@ class GamesFragment : Fragment() {
 
         gameRepository = GameRepository(requireContext())
         getGamesFromDatabase()
+    }
+
+    private fun onLoad(){
+        win_lose.setText(R.string.onLoad);
     }
 
     private fun getGamesFromDatabase() {

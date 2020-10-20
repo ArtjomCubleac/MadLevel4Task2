@@ -82,8 +82,8 @@
 
     <TextView
         android:id="@+id/win_lose"
-        android:layout_width="150dp"
-        android:layout_height="23dp"
+        android:layout_width="255dp"
+        android:layout_height="30dp"
         android:layout_marginBottom="300dp"
         android:text="@string/you_win"
         android:textAlignment="center"
