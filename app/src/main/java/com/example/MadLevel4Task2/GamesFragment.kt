@@ -29,7 +29,6 @@ class GamesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_games, container, false)
     }
 
@@ -46,11 +45,8 @@ class GamesFragment : Fragment() {
             startGame(3)
         }
 
-
         gameRepository = GameRepository(requireContext())
         getGamesFromDatabase()
-
-
     }
 
     private fun getGamesFromDatabase() {
@@ -61,13 +57,10 @@ class GamesFragment : Fragment() {
         }
     }
 
-
     @SuppressLint("SimpleDateFormat")
     private fun startGame(i: Int) {
 
         val datePlayed = SimpleDateFormat("yyyy.MM.dd HH:mm:ss z")
-
-
 
         when (i) {
             1 -> youThrow.setImageResource(R.drawable.rock)
@@ -86,7 +79,7 @@ class GamesFragment : Fragment() {
             win_lose.setText(R.string.you_win)
         } else if (i == computerThrow) {
             win_lose.setText(R.string.draw)
-        } else {
+        } else if (i == 1 && computerThrow == 2){
             win_lose.setText(R.string.you_lose)
         }
 
@@ -94,7 +87,7 @@ class GamesFragment : Fragment() {
             win_lose.setText(R.string.you_win)
         } else if (i == computerThrow) {
             win_lose.setText(R.string.draw)
-        } else {
+        } else if (i == 2 && computerThrow == 3) {
             win_lose.setText(R.string.you_lose)
         }
 
@@ -102,10 +95,9 @@ class GamesFragment : Fragment() {
             win_lose.setText(R.string.you_win)
         } else if (i == computerThrow) {
             win_lose.setText(R.string.draw)
-        } else {
+        } else if (i == 3 && computerThrow == 1) {
             win_lose.setText(R.string.you_lose)
         }
-
 
         mainScope.launch {
             val game = Game(
@@ -117,7 +109,6 @@ class GamesFragment : Fragment() {
 
             withContext(Dispatchers.IO) {
                 gameRepository.insertGame(game)
-
                 getGamesFromDatabase()
             }
         }
